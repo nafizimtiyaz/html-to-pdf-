@@ -1,0 +1,212 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+	<link rel="stylesheet" href={%static "css/bootstrap.min.css"%}>
+	<link rel="stylesheet" href={%static "css/style.css"%} >
+	<title>portfolio</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{%url 'demo'%}">makeMYcv</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{%url 'home'%}">Create CV</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="{%url 'demo'%}">My CV</a>
+        </li>
+
+      </ul>
+        <ul class="d-flex">
+            <button type="submit" class="btn btn-danger"><a href="{%url 'out'%}">Logout</a></button>
+
+        </ul>
+    </div>
+  </div>
+</nav>
+
+	<section class="section-bg pt-2 pl-2 pb-3 pr-2">
+		<button type="submit"><a href="{%url 'de'%}">Delete</a> </button>
+		<button class="btn btn-success" onclick="printDiv('cv01')">Print CV</button>
+
+		<div class="container-fluid"  id="cv01">
+			{%for a in input%}
+			<br><div class="row">
+				<div class="col-md-3 info pb-3">
+					<div class="edu text-white">
+						<div class="edu_image mt-4">
+							<img src="{{request.user.new.image}}" width="350" alt="image">
+						</div>
+						<div class="edu_title mt-5">
+							<h5 class="text-uppercase edu font-weight-bold">education</h5>
+							<hr class="break">
+							<!-- <div class="line"></div> -->
+							<div class="edu_list edu">
+								<ul class="list-unstyled edu">
+									<li><h5 class="">{{a.hons_school}}</h5></li>
+									<li>{{a.hons_p_year}}</li>
+								</ul>
+								<ul class="list-unstyled edu">
+									<li><h5 class="">{{a.h_school}}</h5></li>
+									<li>University of Cambridge</li>
+									<li>{{a.h_s_p_year}}</li>
+								</ul>
+								<ul class="list-unstyled edu">
+									<li><h5 class="heading font-weight-bold">{{a.s_school}}</h5></li>
+									<li>University of Cambridge</li>
+									<li>{{a.s_s_p_year}}</li>
+								</ul>
+							</div>
+						</div>	
+						<div class="edu_title mt-5 text-white mb-5">
+							<h5 class="text-uppercase edu font-weight-bold">reference</h5>
+							<hr class="break">
+							<!-- <div class="line"></div> -->
+							<div class="edu_list edu">
+								<ul class="list-unstyled edu">
+									<li><h5 class="heading font-weight-bold">Sara Taylor</h5></li>
+									<li>Director|Bangladesh Bank</li>
+									<li>tel:+1234-56789</li>
+								</ul>
+								<ul class="list-unstyled edu">
+									<li><h5 class="heading font-weight-bold">Sara Taylor</h5></li>
+									<li>Director|Bangladesh Bank</li>
+									<li>tel:+1234-56789</li>
+								</ul>
+							</div>
+						</div>
+						<div class="phone pb-3">
+							<div class="phone-item text-white">
+								<div class="phn_gap px-4"></div>
+								<div class="phn_text font-weight-bold">Phone</div>
+							</div>
+							<p class="p-text">{{a.number}}</p>
+						</div>
+						<div class="phone pb-3">
+							<div class="phone-item text-white">
+								<div class="phn_gap px-4"></div>
+								<div class="phn_text font-weight-bold">Email</div>
+							</div>
+							<p class="p-text">{{a.email}}</p>
+						</div>
+						<div class="phone pb-3">
+							<div class="phone-item text-white">
+								<div class="phn_gap px-4"></div>
+								<div class="phn_text font-weight-bold">Website</div>
+							</div>
+							<p class="p-text"><a href="https://www.google.com/" target="_blank" class="text-white text-decoration-none">Google.com</a></p>
+						</div>
+						<div class="phone pb-3">
+							<div class="phone-item text-white">
+								<div class="phn_gap px-4"></div>
+								<div class="phn_text font-weight-bold">Present Address</div>
+							</div>
+							<p class="p-text mt-1"></p>
+						</div>
+						<div class="phone pb-3">
+							<div class="phone-item text-white">
+								<div class="phn_gap px-4"></div>
+								<div class="phn_text font-weight-bold">Parmanent Address</div>
+							</div>
+							<p class="p-text mt-1"></p>
+						</div>
+					</div>
+					
+				</div>
+				<div class="col-md-9 bg-white">
+					<div class="intro mt-5 py-3">
+
+						<h1 class="text-uppercase introduce"><span class="font-weight-bold"> {{a.name}}</span></h1>
+						<h5 class="text-uppercase introduce">{{a.email}}</h5>
+
+					</div>
+					<div class="about mt-5">
+						<h3 class="text-uppercase">about me</h3>
+						<hr class="about-line">
+						<p class="colar">{{a.description}}</p>
+					</div>
+					<div class="about mt-4">
+						<h3 class="text-uppercase">work experience</h3>
+						<hr class="about-line">
+						<div class="item1 d-flex">
+							<div class="year">
+								<p>{{a.work_year_one}}</p>
+							</div>
+							<div class="job-sec ml-5">
+								<h4 class="text-uppercase">{{a.work_desig_one}}</h4>
+								<h5 class="c-name pb-3">{{a.work_ex_c_name_one}}</h5>
+								<p class="colar">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis labore laboriosam corrupti nihil maiores, pariatur harum numquam earum ad tempore. Vitae quos blanditiis officiis dolore molestias, dolorum ullam? Ullam impedit quis dolor asperiores aut ut, necessitatibus a excepturi sapiente perferendis.</p>
+							</div>
+						</div>
+						<div class="item2 d-flex">
+							<div class="year">
+								<p>{{a.work_year_two}}</p>
+							</div>
+							<div class="job-sec ml-5">
+								<h4 class="text-uppercase">{{a.work_desig_two}}</h4>
+								<h5 class="c-name pb-3">{{a.work_ex_c_name_two}}</h5>
+								<p class="colar">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis labore laboriosam corrupti nihil maiores, pariatur harum numquam earum ad tempore. Vitae quos blanditiis officiis dolore molestias, dolorum ullam? Ullam impedit quis dolor asperiores aut ut, necessitatibus a excepturi sapiente perferendis.</p>
+							</div>
+						</div>
+						<div class="item3 d-flex">
+							<div class="year">
+								<p>{{a.work_year_two}}</p>
+							</div>
+							<div class="job-sec ml-5">
+								<h4 class="text-uppercase"></h4>
+								<h5 class="c-name pb-3">{{a.work_ex_c_name_three}}</h5>
+								<p class="colar">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis labore laboriosam corrupti nihil maiores, pariatur harum numquam earum ad tempore. Vitae quos blanditiis officiis dolore molestias, dolorum ullam? Ullam impedit quis dolor asperiores aut ut, necessitatibus a excepturi sapiente perferendis.</p>
+							</div>
+						</div>
+						<div class="skill mt-4">
+							<h3 class="text-uppercase">software skill</h3>
+							<hr class="about-line">
+							<div class="list d-flex colar">
+								<ul class="list-unstyled">
+									<li>{{a.soft_skill}}</li>
+									<li>{{a.soft_skill}}</li>
+									<li>{{a.soft_skill}}</li>
+								</ul>
+								<ul class="list-unstyled ml-5">
+									<li>{{a.soft_skill}}</li>
+									<li>{{a.soft_skill}}</li>
+									<li>{{a.soft_skill}}</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+			{%endfor%}
+			
+		</div>
+	</section>
+	<script>
+		function printDiv(cv01){
+			var printContents = document.getElementById(cv01).innerHTML;
+			var originalContents = document.body.innerHTML;
+	
+			document.body.innerHTML = printContents;
+	
+			window.print();
+	
+			document.body.innerHTML = originalContents;
+	
+		}
+	</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous">
+</body>
+</html>

@@ -1,0 +1,79 @@
+.section-bg{
+    background: #D5D5D5;
+}
+.edu_image{
+    margin: auto;
+    width: 100%;
+    height: 300px;
+}
+.edu_image img{
+    width: 100%;
+    height: 100%;
+}
+.info{
+    background: #222126;
+}
+.break{
+    background: #8B7949;
+    width: 100%;
+    height: 3px;
+    margin-left: 15px;
+}
+.heading{
+    font-size: 1em;
+    line-height: 4px;
+}
+.edu{
+    margin-left: 17px;
+}
+.phone-item{
+    display: flex;
+}
+.phn_gap{
+    background: #FDCC03;
+    width: 10%;
+    margin-left: -32px;
+}
+.phn_text{
+    background: #282C2F;
+    width: 100%;
+    margin-right: -15px;
+    padding: 0 16px;
+}
+.p-text{
+    margin-left: 32px;
+    margin-bottom: 0;
+}
+.line{
+    line-height: 24px;
+}
+/* about part css */
+.intro{
+    background: #FFCB00;
+    margin-left: -15px;
+    margin-right: -15px;
+}
+.introduce{
+    margin-left: 57px;
+}
+.introduce span{
+    color: #252525;
+}
+.about{
+    width: 90%;
+    margin-left: 45px;
+}
+.about-line{
+    width: 100%;
+    height: 1px;
+    background: #B1B1B1;
+}
+.c-name{
+    line-height: 10px;
+}
+.list{
+    margin-left: 128px;
+}
+.colar{
+    color:#8F8E93;
+}
